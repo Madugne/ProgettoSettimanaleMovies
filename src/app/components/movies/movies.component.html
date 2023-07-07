@@ -1,0 +1,32 @@
+<body>
+    <div class="text-center">
+        <h1 class="p-5 text-white">I NOSTRI FILM</h1>
+    </div>
+    <div class="text-center" *ngIf="!movies">
+        <span class="spinner-grow"></span>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 h-100 rounded-5" *ngFor="let movie of movies">
+                <div class="card h-100ov mb-4">
+                    <a [routerLink]="[movie.id]">
+                        <img src="{{ imageURL }}{{ movie.poster_path }}" class="card-img-top"
+                            alt="Locandina {{ movie.title }}" />
+                        <div class="card-body">
+                            <h5 class="card-title">{{ movie.title }}</h5>
+                        </div>
+                    </a>
+                    <button class="rounded" type="button"
+                        (click)="isFavorito(movie) ? eliminaFavorito(movie) : aggiungiFavorito(movie.id)"
+                        [ngClass]="{'bg-danger': isFavorito(movie), 'bg-secondary': !isFavorito(movie)}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-heart-fill p-1" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

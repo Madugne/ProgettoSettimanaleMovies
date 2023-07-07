@@ -1,0 +1,13 @@
+<body>
+    <div class="container d-flex justify-content-center p-5 text-white">
+        <div class="card" style="width: 27rem;">
+            <div class="card-body mb-4">
+                <h5 class="card-title">{{film.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary"><img src="{{ imageURL }}{{ film.poster_path }}"
+                        class="card-img-top" alt="Locandina {{ film.title }}" /></h6>
+                <p class="card-text">{{film.overview}}</p>
+            </div>
+            <button (click)="torna()" class="text-center btn btn-danger" id="link">Torna all'elenco film</button>
+        </div>
+    </div>
+</body>
